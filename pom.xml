@@ -42,21 +42,19 @@
                         </manifest>
                     </archive>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>3.0.0-M5</version>
+                <configuration>
+                    <groups>IT</groups>
+                </configuration>
                 <executions>
                     <execution>
-                        <id>jar-for-testing</id>
-                        <phase>generate-test-sources</phase>
-                        <configuration>
-                            <archive>
-                                <manifest>
-                                    <addClasspath>true</addClasspath>
-                                    <mainClass>com.epam.prejap.teatrees.TeaTrees</mainClass>
-                                </manifest>
-                            </archive>
-                            <classifier>testing</classifier>
-                        </configuration>
                         <goals>
-                            <goal>jar</goal>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
                         </goals>
                     </execution>
                 </executions>
