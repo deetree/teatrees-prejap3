@@ -15,14 +15,22 @@ import java.util.jar.JarFile;
  *
  * @author Mariusz Bal
  */
-@Test
-public class JarTest {
+@Test(groups = "IT")
+public class JarIT {
 
     private File file;
 
     @BeforeClass
     public void setup() {
         file = getJarFile();
+    }
+
+    /**
+     * Checks whether the file retrieved is not null. Other tests depend on its result.
+     * They may proceed if this one success.
+     */
+    public void shouldFileNotBeNull() {
+        Assert.assertNotNull(file, "The file must not be null");
     }
 
     /**
@@ -41,6 +49,7 @@ public class JarTest {
     /**
      * Checks whether the jar file is properly created
      */
+    @Test(dependsOnMethods = "shouldFileNotBeNull")
     public void shouldCreateJar() {
         Assert.assertTrue(file.exists(), "The jar file does not exist");
     }
@@ -50,6 +59,7 @@ public class JarTest {
      *
      * @throws IOException an exception related to opening the file
      */
+    @Test(dependsOnMethods = "shouldFileNotBeNull")
     public void shouldContainCorrectMainClass() throws IOException {
         JarFile jarFile = new JarFile(file);
         String actualMain = jarFile.getManifest().getMainAttributes().getValue(Attributes.Name.MAIN_CLASS);
