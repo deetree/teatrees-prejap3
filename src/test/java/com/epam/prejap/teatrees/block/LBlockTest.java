@@ -40,7 +40,7 @@ public class LBlockTest {
                 String.format("The L block should have %d columns", expectedColumns));
     }
 
-    @Test(dataProvider = "hBlockCoordinates")
+    @Test(dataProvider = "lBlockCoordinates")
     public void shouldHaveProperValueAtMatrixCoordinates(int row, int column, int expectedValue) {
         LBlock lBlock = new LBlock();
         byte actualValue = lBlock.dotAt(row, column);
