@@ -13,7 +13,7 @@ import static org.testng.Assert.assertEquals;
 @Test(groups = "blocks")
 public class LBlockTest {
     @DataProvider
-    public static Object[][] hBlockCoordinates() {
+    public static Object[][] lBlockCoordinates() {
         return new Object[][]{
                 {0, 0, 1},
                 {0, 1, 0},
