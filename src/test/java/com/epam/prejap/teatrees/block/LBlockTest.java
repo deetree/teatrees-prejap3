@@ -6,8 +6,6 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
 
 /**
- * LBlock tests
- *
  * @author Mariusz Bal
  */
 @Test(groups = "blocks")
