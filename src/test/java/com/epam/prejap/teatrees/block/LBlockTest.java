@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
 
 /**
- * HBlock tests
+ * LBlock tests
  *
  * @author Mariusz Bal
  */
